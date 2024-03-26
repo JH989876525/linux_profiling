@@ -1,3 +1,4 @@
 perf.data
 perf-kernel.svg
 out.perf-folded
+*.log
