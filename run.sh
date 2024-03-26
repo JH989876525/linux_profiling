@@ -13,7 +13,7 @@ function profiling_net {
 }
 
 function profiling_cpu {
-    pidstat -U $TOTAL_TIMES > profiling_cpu.log
+    pidstat -U $FREQUENCY $TIMES > profiling_cpu.log
 }
 
 function profiling_mem {
@@ -37,17 +37,25 @@ function cleanall {
     rm -rf \
     out.perf-folded \
     perf-kernel.svg \
-    perf.data
+    perf.data* \
+    *.log
 }
 
-# profiling_net
+if [ $UID -ne 0 ] ; then
+	echo -e "User \"root\" in need."
+    exit
+fi
 
-# profiling_cpu
+cleanall
 
-# profiling_mem
+profiling_net
 
-# profiling_disk
+profiling_cpu
 
-# profiling_perf
+profiling_mem
 
-# draw_flame_graph
+profiling_disk
+
+profiling_perf
+
+draw_flame_graph
