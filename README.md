@@ -9,3 +9,12 @@ This repository contain the system profiling tools.
     sudo make install
     ```
 - perf
+
+# Run
+```bash
+sudo ./run.sh
+```
+
+# Reference
+- https://github.com/sysstat/sysstat
+- https://github.com/brendangregg/FlameGraph
