@@ -18,6 +18,7 @@ function profiling_perf {
 
 function draw_flame_graph {
     perf script | ./stackcollapse-perf.pl > out.perf-folded
+    sync
     ./flamegraph.pl out.perf-folded > perf-kernel.svg
 }
 
@@ -61,6 +62,8 @@ do
     ProgressBar "${SECONDS}" "${TOTAL_TIMES}"
 done
 printf "\n"
+
+sync
 
 sleep 3
 
