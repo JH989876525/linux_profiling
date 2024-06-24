@@ -53,3 +53,5 @@ do
     ProgressBar "${SECONDS}" "${TOTAL_TIMES}"
 done
 printf "\n"
+
+cat profiling_net.log
